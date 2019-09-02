@@ -1,0 +1,14 @@
+<form>
+  <div>
+    <label for="title">Title:</label>
+    <input name="title" id="title" #title>
+  </div>
+  <div>
+    <label for="link">Link:</label>
+    <input name="link" id="link" #link>
+  </div>
+  <div>
+    <button (click)="addArticle(title, link)">Submit link</button>
+  </div>
+</form>
+<app-article></app-article>
