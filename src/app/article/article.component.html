@@ -1,4 +1,6 @@
 <div>
-  <span class="votes">{{votes}}</span><span>Points</span>
-  <a class="title" href="{{link}}">{{title}}</a>
+  <span class="votes">{{article.votes}}</span><span>Points</span>
+  <a class="title" href="{{article.link}}">{{article.title}}</a>
+  <button (click)="voteUp()">upvote</button>
+  <button (click)="voteDown()">downvote</button>
 </div>
