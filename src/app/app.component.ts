@@ -17,6 +17,7 @@ export class AppComponent {
       new Article('Fullstack', 'http://fullstack.io', 2),
       new Article('Angular Homepage', 'http://angular.io', 1)
     ];
+    (window as any).articles = this.articles;
   }
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement) {
@@ -28,5 +29,9 @@ export class AppComponent {
 
   sortedArticles(): Article[] {
     return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+  }
+
+  onSubmit(form) {
+    console.log('you submitted form:', form);
   }
 }

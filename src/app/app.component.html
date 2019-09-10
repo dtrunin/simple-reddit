@@ -1,14 +1,26 @@
-<form>
+<form #form="ngForm"
+      (ngSubmit)="onSubmit(form.value)">
+  <!--
+  The #v="thing" syntax says that we want to create a local variable for this view.
+  We’re creating an alias to ngForm, for this view, bound to the variable #form.
+  Type of #form is FormGroup.
+  -->
   <div>
     <label for="title">Title:</label>
-    <input name="title" id="title" #title>
+    <input name="title" id="title" #title ngModel>
+    <!--
+    NgModel creates a new FormControl that is automatically added to the parent FormGroup (in this
+    case, on the form) and then binds a DOM element to that new FormControl.
+    That is, it sets up an association between the input tag in our view and the FormControl and the association is matched
+    by a name, in this case "title".
+    -->
   </div>
   <div>
     <label for="link">Link:</label>
-    <input name="link" id="link" #link>
+    <input name="link" id="link" #link ngModel>
   </div>
   <div>
-    <button (click)="addArticle(title, link)">Submit link</button>
+    <button type="submit">Submit link</button>
   </div>
 </form>
 
